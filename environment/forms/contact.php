@@ -7,35 +7,43 @@
   */
 
   // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'contact@example.com';
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+    $name = $_POST ['name'];
+    $email = $_POST ['email'];
+    $subject = $_POST ['subject'];
+    $message = $_POST ['message'];
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+    $email_from = "$name";
+    $email_subject = " $subject";
+    $email_body = "Name: $name.\n".
+                  "Email: $email.\n".
+                  "Message: $message.\n";
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
-  );
-  */
+    $to = "mediarebound@outlook.com";
+    $headers = "From: $email_from\r\n";
+    $headers.= "Reply-To: $email\r\n";
+    
+    mail($to,$email_subject,$email_body,$headers);
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
-
-  echo $contact->send();
 ?>
+
+<!----------------------------(page redirect for testing) replace with orignal link and href back to home page!-->
+ 
+ <script> location.replace("index.html"); </script>
+ 
+<!---------------------------Bits of code for reuse-->
+<!--// header("location:index.html");-->
+<!--ob_start();-->
+<!--ob_end_flush();-->
+<!--//  header("location:http://www.tiptoefinancial.com/services.html");-->
+ <!--if(mail($to,$email_subject,$email_body,$headers)) echo "mail sent"; else echo "not send";-->
+   
+<!--if(mail($to,$email_subject,$email_body,$headers)){echo "mail sent";} else { echo "not send"; }-->
+
+<!--debugg error message contact.html
+mail sent
+Warning: Cannot modify header information - headers already sent by (output started at /home4/daniel/tiptoefinancial.com/forms/contact.php:27) 
+in /home4/daniel/tiptoefinancial.com/forms/contact.php on line 29
++ erase duplicate code on your live server & development enviroment contact.php duplicate & contactcopy.php
+--->
+
