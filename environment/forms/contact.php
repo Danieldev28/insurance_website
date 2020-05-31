@@ -30,20 +30,3 @@
 <!----------------------------(page redirect for testing) replace with orignal link and href back to home page!-->
  
  <script> location.replace("index.html"); </script>
- 
-<!---------------------------Bits of code for reuse-->
-<!--// header("location:index.html");-->
-<!--ob_start();-->
-<!--ob_end_flush();-->
-<!--//  header("location:http://www.tiptoefinancial.com/services.html");-->
- <!--if(mail($to,$email_subject,$email_body,$headers)) echo "mail sent"; else echo "not send";-->
-   
-<!--if(mail($to,$email_subject,$email_body,$headers)){echo "mail sent";} else { echo "not send"; }-->
-
-<!--debugg error message contact.html
-mail sent
-Warning: Cannot modify header information - headers already sent by (output started at /home4/daniel/tiptoefinancial.com/forms/contact.php:27) 
-in /home4/daniel/tiptoefinancial.com/forms/contact.php on line 29
-+ erase duplicate code on your live server & development enviroment contact.php duplicate & contactcopy.php
---->
-
