@@ -171,6 +171,10 @@
 
   });
 
+$('.carousel').carousel({
+  interval: false,
+});
+
   // Initi AOS
   AOS.init({
     duration: 1000,
