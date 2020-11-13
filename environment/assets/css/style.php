@@ -1,3 +1,7 @@
+<?php
+    header("Content-type: text/css; charset: UTF-8");
+?>
+
 /**
 * Template Name: Moderna - v2.0.1
 * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
